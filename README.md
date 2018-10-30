@@ -38,4 +38,4 @@ extension EWWebViewTableViewCell: WKNavigationDelegate {
 ```
     
 
-![效果图预览](https://github.com/WangLiquan/EWWebViewTableViewCell/raw/master/images/demonstration.gif)
+![效果图预览](https://github.com/WangLiquan/EWWebViewCell/raw/master/images/demonstration.gif)
