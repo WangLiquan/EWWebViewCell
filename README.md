@@ -29,8 +29,8 @@ extension EWWebViewTableViewCell: WKNavigationDelegate {
     /// 修改cell高度
     self.webViewCellHeight = info
     /*  重置tableViewCell.height.
-    如果使用reloadData()或者reloadRow()会导致webView重新加载.陷入循环.
-    使用beginUpdates只更新frame,并不重新加载
+        如果使用reloadData()或者reloadRow()会导致webView重新加载.陷入循环.
+        使用beginUpdates只更新frame,并不重新加载
     */
     tableView.beginUpdates()
     tableView.endUpdates()
