@@ -20,14 +20,14 @@ class ViewController: UIViewController {
         tableView.backgroundColor = UIColor.green
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.separatorStyle = .none;
+        tableView.separatorStyle = .none
         tableView.register(EWWebViewTableViewCell.self, forCellReuseIdentifier: EWWebViewTableViewCell.identifier)
         /// 接收页面在在完成通知
         NotificationCenter.default.addObserver(self, selector: #selector(reloadWebViewCell(_:)), name: NSNotification.Name(rawValue: "webViewHeightCallBack"), object: nil)
 
     }
-    @objc private func reloadWebViewCell(_ notification: NSNotification){
-        let info: Int = notification.object as! Int
+    @objc private func reloadWebViewCell(_ notification: NSNotification) {
+        guard let info = notification.object as? Int else { return }
         /// 修改cell高度
         self.webViewCellHeight = info
         /*  重置tableViewCell.height.
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController:UITableViewDelegate,UITableViewDataSource{
+extension ViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(webViewCellHeight)
     }
@@ -59,4 +59,3 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     }
 }
-
