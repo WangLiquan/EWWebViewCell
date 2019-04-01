@@ -1,10 +1,11 @@
 # EWWebViewTableViewCell
-<h3>Cell中添加WKWebView,Cell高度根据WebView加载页面自适应</h3>
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)
 
+Cell中添加WKWebView,Cell高度根据WebView加载页面自适应
 
 主要功能代码:
 ----
-#### 1.Cell内实现WKNavigationDelegate中didFinish方法,通过document.body.offsetHeight字段获取加载页面Height.通过document.readyState字段判断页面加载完成,发送通知.
+1. Cell内实现WKNavigationDelegate中didFinish方法,通过document.body.offsetHeight字段获取加载页面Height.通过document.readyState字段判断页面加载完成,发送通知.
 ```
 extension EWWebViewTableViewCell: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
@@ -22,7 +23,7 @@ extension EWWebViewTableViewCell: WKNavigationDelegate {
     }
 }
 ```
-#### 2.tableView类获取通知,调用更新Cell高度方法
+2. tableView类获取通知,调用更新Cell高度方法
 ```
 @objc private func reloadWebViewCell(_ notification: NSNotification){
     let info: Int = notification.object as! Int
